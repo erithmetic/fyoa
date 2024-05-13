@@ -4,10 +4,13 @@ require 'json'
 require 'prawn'
 require 'rqrcode'
 
+URL = ENV.fetch('URL', 'http://localhost:4567')
+NUMBER = '3168540132'
+
 gopher = JSON.parse(File.read('gopher.json'))
 
 def generate_qrcode(number, id)
-  qrcode = RQRCode::QRCode.new("http://localhost:4567/story/#{id}/#{number}")
+  qrcode = RQRCode::QRCode.new("#{URL}/story/#{id}/#{number}")
   png = qrcode.as_png
   path = File.join("pdfs/#{id}.png")
   IO.binwrite path, png.to_s

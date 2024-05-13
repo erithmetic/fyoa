@@ -4,12 +4,10 @@ source "https://rubygems.org"
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
-gem 'httparty'
+gem 'rackup'
 gem 'sinatra'
-gem "rackup", "~> 2.1"
+gem 'twilio-ruby'
 
-group :development do
-  gem 'prawn'
-  gem 'rqrcode'
-end
+gem 'prawn'
+gem 'rqrcode'
 
