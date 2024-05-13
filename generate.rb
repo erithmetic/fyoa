@@ -59,6 +59,6 @@ def generate_pdf(number, id, story)
 end
 
 gopher.each do |id, story|
-  path = generate_pdf id, story
+  path = generate_pdf NUMBER, id, story
   puts path
 end

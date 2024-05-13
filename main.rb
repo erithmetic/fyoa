@@ -12,6 +12,8 @@ TWILIO_SMS_NUMBER = ENV.fetch 'TWILIO_SMS_NUMBER'
 
 class StoryNotFound < Exception; end
 
+gopher = JSON.parse(File.read('gopher.json'))
+
 def fax_pdf(id, number)
   twilio = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
   message = twilio.messages.create(
