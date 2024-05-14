@@ -21,7 +21,15 @@ def fax_pdf(id, number)
   #   to: NOTIFICATION_SMS_NUMBER,  # Text this number
   #   from: TWILIO_SMS_NUMBER, # From a valid Twilio number
   # )
-  puts "#{number} chose #{id}"
+  logger.info "#{number} chose #{id}"
+end
+
+use Rack::Logger
+
+helpers do
+  def logger
+    request.logger
+  end
 end
 
 get '/story/:id/:number' do
