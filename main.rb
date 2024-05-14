@@ -15,12 +15,13 @@ class StoryNotFound < Exception; end
 gopher = JSON.parse(File.read('gopher.json'))
 
 def fax_pdf(id, number)
-  twilio = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
-  message = twilio.messages.create(
-    body: "#{number} chose #{id}",
-    to: NOTIFICATION_SMS_NUMBER,  # Text this number
-    from: TWILIO_SMS_NUMBER, # From a valid Twilio number
-  )
+  # twilio = Twilio::REST::Client.new ACCOUNT_SID, AUTH_TOKEN
+  # message = twilio.messages.create(
+  #   body: "#{number} chose #{id}",
+  #   to: NOTIFICATION_SMS_NUMBER,  # Text this number
+  #   from: TWILIO_SMS_NUMBER, # From a valid Twilio number
+  # )
+  puts "#{number} chose #{id}"
 end
 
 get '/story/:id/:number' do
